@@ -2,10 +2,10 @@
 
 # Roster: 
 <br>
-Alexandru Cimpoiesu - Project Manager 
-Alvin Sze - Backend Devo 1
-Sofia Shi - Backend Devo 2 
-Shafin Kazi - Frontend Devo 
+Alexandru Cimpoiesu - Project Manager <br>
+Alvin Sze - Backend Devo 1 <br>
+Sofia Shi - Backend Devo 2 <br>
+Shafin Kazi - Frontend Devo <br>
 
 <br>
 
