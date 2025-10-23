@@ -4,7 +4,7 @@
 <br>
 Alexandru Cimpoiesu - Project Manager <br>
 Alvin Sze - Backend Devo 1 <br>
-Sofia Chi - Backend Devo 2 <br>
+Sophia Chi - Backend Devo 2 <br>
 Shafin Kazi - Frontend Devo <br>
 
 <br>
