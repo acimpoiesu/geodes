@@ -8,3 +8,10 @@ INITIAL DD REVIEW
 - (outdated? we're not doing wikis anymore, but i'll still write this) need db for wikis to check edit/site history 
 - component map should have frontend at the top and backend at the bottom
 - component map needs deeper explanation of component relations
+
+alexandruC -- 2025-10-27 7:39
+DESIGN DOC
+- doc added with improved component relations in component map
+- roles assigned
+- added task description
+- mapped out each page with interactions with db
