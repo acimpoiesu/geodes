@@ -15,3 +15,10 @@ DESIGN DOC
 - roles assigned
 - added task description
 - mapped out each page with interactions with db
+
+alexandruC -- 2025-10-28 8:22
+DESIGN DOC REVISIONS
+- Changed how db looks up users with PK
+- Added cookies to hold an encrypted token to stay logged in.
+- Updated target ship date
+- made username into string
