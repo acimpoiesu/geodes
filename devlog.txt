@@ -22,3 +22,8 @@ DESIGN DOC REVISIONS
 - Added cookies to hold an encrypted token to stay logged in.
 - Updated target ship date
 - made username into string
+
+alvinS -- 2025-10-28 10:41
+INITIALIZE APP
+- Created text on homepage
+- Running flask app links to homepage
