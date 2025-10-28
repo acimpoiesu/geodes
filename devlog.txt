@@ -27,3 +27,7 @@ alvinS -- 2025-10-28 10:41
 INITIALIZE APP
 - Created text on homepage
 - Running flask app links to homepage
+
+sophiaC -- 2025-10-28 10:50
+README
+- Update Install Guide and Launch Codes
