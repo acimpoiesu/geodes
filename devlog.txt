@@ -50,3 +50,7 @@ LOG OUT
 alexandruC -- 2025-10-29 10:36
 REQUIREMENTS
 - Added dependencies into requirements.txt
+
+sophiaC -- 2025-10-29 10:51
+HOMEPAGE
+- linked login, logout, profile page
