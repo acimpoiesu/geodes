@@ -32,10 +32,9 @@ sophiaC -- 2025-10-28 10:50
 README
 - Update Install Guide and Launch Codes
 
-sophiaC -- 2025-10-29 12:17
+alexandruC -- 2025-10-29 12:17
 README
 - Added code blocks to Install Guide and Launch Codes
-- Fleshed out install guide with git clone
 
 alvinS -- 2025-10-29 10:32
 LOG IN
@@ -47,3 +46,7 @@ shafinK -- 2025-10-29 10:35
 LOG OUT
 - Linked home page to log out page
 - Linked logout page to homepage
+
+alexandruC -- 2025-10-29 10:36
+REQUIREMENTS
+- Added dependencies into requirements.txt
