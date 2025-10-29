@@ -56,3 +56,4 @@ HOMEPAGE
 - linked login, logout, profile page
 Profile
 - added app route to profile in __init__.py
+- linked homepage in profil.html
