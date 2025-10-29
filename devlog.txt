@@ -54,3 +54,5 @@ REQUIREMENTS
 sophiaC -- 2025-10-29 10:51
 HOMEPAGE
 - linked login, logout, profile page
+Profile
+- added app route to profile in __init__.py
