@@ -18,6 +18,10 @@ def disp_login():
 def disp_logout():
     return render_template('logout.html')
 
+@app.route("/profile")
+def disp_profile():
+    return render_template('profile.html')
+
 if __name__ == "__main__":
     app.debug = True
     app.run()
