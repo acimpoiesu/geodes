@@ -31,3 +31,8 @@ INITIALIZE APP
 sophiaC -- 2025-10-28 10:50
 README
 - Update Install Guide and Launch Codes
+
+sophiaC -- 2025-10-29 12:17
+README
+- Added code blocks to Install Guide and Launch Codes
+- Fleshed out install guide with git clone 
