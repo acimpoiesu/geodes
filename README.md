@@ -15,9 +15,12 @@ App displays wiki pages. Users can create accounts and log into their accounts. 
 
 # Install Guide:
 Git clone Repo or download as zip then unzip
+
 ```https://github.com/acimpoiesu/geodes.git```
 
 # Launch Codes:
 If in clone of repo run code in terminal: 
+
 ``` cd app ```
+
 ```python __init__.py```
