@@ -14,6 +14,10 @@ def disp_homepage():
 def disp_login():
     return render_template('login.html')
 
+@app.route("/logout")
+def disp_logout():
+    return render_template('logout.html')
+
 if __name__ == "__main__":
     app.debug = True
     app.run()
