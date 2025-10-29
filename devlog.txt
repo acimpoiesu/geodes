@@ -3,9 +3,9 @@ INITIAL DD REVIEW
 - add overview/product description
 - need to assign specific roles/functions to group members
 - password should not be primary key
-- save login state with cookies 
-- add logout functionality 
-- (outdated? we're not doing wikis anymore, but i'll still write this) need db for wikis to check edit/site history 
+- save login state with cookies
+- add logout functionality
+- (outdated? we're not doing wikis anymore, but i'll still write this) need db for wikis to check edit/site history
 - component map should have frontend at the top and backend at the bottom
 - component map needs deeper explanation of component relations
 
@@ -32,7 +32,11 @@ sophiaC -- 2025-10-28 10:50
 README
 - Update Install Guide and Launch Codes
 
-sophiaC -- 2025-10-29 12:17
+alexandruC -- 2025-10-29 12:17
 README
 - Added code blocks to Install Guide and Launch Codes
-- Fleshed out install guide with git clone 
+- Fleshed out install guide with git clone
+
+alexandruC -- 2025-10-29 10:36
+REQUIREMENTS
+- Added dependencies into requirements.txt
