@@ -36,3 +36,9 @@ sophiaC -- 2025-10-29 12:17
 README
 - Added code blocks to Install Guide and Launch Codes
 - Fleshed out install guide with git clone 
+
+alvinS -- 2025-10-29 10:32
+LOG IN
+- Linked home page to log in page
+- Log in page takes input
+- Input does not change anything
