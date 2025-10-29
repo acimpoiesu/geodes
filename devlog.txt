@@ -41,8 +41,6 @@ alexandruC -- 2025-10-29 10:36
 REQUIREMENTS
 - Added dependencies into requirements.txt
 
-- Fleshed out install guide with git clone
-
 alvinS -- 2025-10-29 10:32
 LOG IN
 - Linked home page to log in page
