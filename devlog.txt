@@ -66,3 +66,9 @@ alvinS -- 2025-10-30 11:00
 LOGIN
 - attempted to initiate sqlite3 db
 - database is locked error
+
+shafinK -- 2025-10-30 18:45
+LOGIN
+- fixed initiation of dummy sqlite3 db
+- database is locked error resolved
+- app able to recognize if username is in db from login
