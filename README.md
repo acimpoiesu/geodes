@@ -1,6 +1,6 @@
-# Wiki by Geodes
+# Blog by Geodes
 
-# Roster: 
+# Roster:
 <br>
 Alexandru Cimpoiesu - Project Manager <br>
 Alvin Sze - Backend Devo 1 <br>
@@ -9,9 +9,9 @@ Shafin Kazi - Frontend Devo <br>
 
 <br>
 
-# App Description: 
+# App Description:
 <br>
-App displays wiki pages. Users can create accounts and log into their accounts. Wiki pages can be created and/or edited by those with an account on the website who are logged in. Users who are not logged in can read wiki pages. 
+Our app will be a blog site that allows users to create and log into accounts. They will then be able to create their own blog page to add entries to. Logged in users can also view other users’ pages. Each blog page will display the author, the timestamp of publish, and the blog post itself. The homepage will display the most recent, trending blogs. 
 
 # Install Guide:
 Git clone Repo or download as zip then unzip
@@ -19,7 +19,7 @@ Git clone Repo or download as zip then unzip
 ```https://github.com/acimpoiesu/geodes.git```
 
 # Launch Codes:
-If in clone of repo run code in terminal: 
+If in clone of repo run code in terminal:
 
 ``` cd app ```
 
