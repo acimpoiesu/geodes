@@ -57,3 +57,7 @@ HOMEPAGE
 Profile
 - added app route to profile in __init__.py
 - linked homepage in profil.html
+
+shafinK -- 2025-10-30 10:25
+README
+- updated project description 
