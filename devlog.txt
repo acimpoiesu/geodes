@@ -60,4 +60,9 @@ Profile
 
 shafinK -- 2025-10-30 10:25
 README
-- updated project description 
+- updated project description
+
+alvinS -- 2025-10-30 11:00
+LOGIN
+- attempted to initiate sqlite3 db
+- database is locked error
