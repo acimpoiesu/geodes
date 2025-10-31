@@ -2,12 +2,13 @@
 # Softdev 2025
 # p00
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session
 
 import sqlite3
 
 
 app = Flask(__name__)
+app.secret_key = "secret"
 DB_FILE = "blog.db"
 db = sqlite3.connect(DB_FILE)
 c = db.cursor()
@@ -42,6 +43,17 @@ def set_user():
 @app.route("/logout")
 def disp_logout():
     return render_template('logout.html')
+
+@app.route("/createaccount")
+def disp_create_account():
+        return render_template("createaccount.html")
+
+@app.route("/creating", methods = ["POST"])
+def creating():
+    if (request.method == "POST"):
+        username = request.form["username"]
+        session["username"] = username
+    return render_template('homepage.html')
 
 @app.route("/profile")
 def disp_profile():

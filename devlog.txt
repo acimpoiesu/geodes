@@ -72,3 +72,9 @@ LOGIN
 - fixed initiation of dummy sqlite3 db
 - database is locked error resolved
 - app able to recognize if username is in db from login
+
+shafinK -- 2025-10-31 11:10
+CREATE ACCOUNT
+- added a create account page
+- users can submit a username and password
+- user/pass are saved in session
