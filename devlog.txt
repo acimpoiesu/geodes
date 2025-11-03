@@ -78,3 +78,9 @@ CREATE ACCOUNT
 - added a create account page
 - users can submit a username and password
 - user/pass are saved in session
+
+alvinS -- 2025-11-03 10:57
+EXTERNAL README REVIEW
+- added git clone as code block
+- clearer requirement install instructions
+- clearer navigation through directories 

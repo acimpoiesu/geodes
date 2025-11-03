@@ -11,15 +11,16 @@ Shafin Kazi - Frontend Devo <br>
 
 # App Description:
 <br>
-Our app will be a blog site that allows users to create and log into accounts. They will then be able to create their own blog page to add entries to. Logged in users can also view other users’ pages. Each blog page will display the author, the timestamp of publish, and the blog post itself. The homepage will display the most recent, trending blogs. 
+Our app will be a blog site that allows users to create and log into accounts. They will then be able to create their own blog page to add entries to. Logged in users can also view other users’ pages. Each blog page will display the author, the timestamp of publish, and the blog post itself. The homepage will display the most recent, trending blogs.
 
 # Install Guide:
-Git clone Repo or download as zip then unzip
+Git clone Repo with ```git clone https://github.com/acimpoiesu/geodes.git"``` or download as zip then extract all files
 
-```https://github.com/acimpoiesu/geodes.git```
+Navigate to the root directory with ```cd geodes``` and install the requirements:
+```pip install -r requirements.txt```
 
 # Launch Codes:
-If in clone of repo run code in terminal:
+Navigate to the root directory with ```cd geodes```:
 
 ``` cd app ```
 
