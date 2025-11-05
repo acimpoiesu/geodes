@@ -14,7 +14,9 @@
     <h1> GEODE BLOG </h1>
       <header>
       <nav>
+       {% if not session['username'] %}
        <a href = "/login"> Login </a>
+       {% endif %}
        <br>
        <a href = "/profile"> My Profile </a>
        <br>

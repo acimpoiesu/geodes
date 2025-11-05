@@ -88,4 +88,5 @@ EXTERNAL README REVIEW
 shafinK -- 2025-11-05 10:38
 HOMEPAGE AND CREATE ACCOUNT
 - homepage only displays "log out" button if username in session
-- creating an account adds the account to the users db 
+- homepage only displays "log in" button if username not in session
+- creating an account adds the account to the users db
