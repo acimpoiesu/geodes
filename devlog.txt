@@ -73,7 +73,7 @@ LOGIN
 - database is locked error resolved
 - app able to recognize if username is in db from login
 
-shafinK -- 2025-10-31 11:10
+shafinK -- 2025-10-31 11:10session["password"] = password
 CREATE ACCOUNT
 - added a create account page
 - users can submit a username and password
@@ -90,3 +90,9 @@ HOMEPAGE AND CREATE ACCOUNT
 - homepage only displays "log out" button if username in session
 - homepage only displays "log in" button if username not in session
 - creating an account adds the account to the users db
+
+alvinS -- 2025-11-05 11:00
+LOGIN AND CREATE ACCOUNT
+- Create account adds to database
+- Login in displays username on profile page
+- Login requires confirm password, throws error if they don't match

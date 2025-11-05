@@ -13,6 +13,9 @@
 
 <header>
        <a href = "/"> Home </a>
+       {% if session['username'] %}
+       <h1> {{ session["username"] }} </h1>
+       {% endif %}
 </header>
 
 </html>
