@@ -15,8 +15,12 @@
       <header>
       <nav>
        <a href = "/login"> Login </a>
-       <a href = "/logout"> Logout </a>
+       <br>
        <a href = "/profile"> My Profile </a>
+       <br>
+       {% if session['username'] %}
+       <a href = "/logout"> Logout </a>
+       {% endif %}
       </nav>
      </header>
   </body>

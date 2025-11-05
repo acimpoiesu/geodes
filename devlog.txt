@@ -83,4 +83,9 @@ alvinS -- 2025-11-03 10:57
 EXTERNAL README REVIEW
 - added git clone as code block
 - clearer requirement install instructions
-- clearer navigation through directories 
+- clearer navigation through directories
+
+shafinK -- 2025-11-05 10:38
+HOMEPAGE AND CREATE ACCOUNT
+- homepage only displays "log out" button if username in session
+- creating an account adds the account to the users db 

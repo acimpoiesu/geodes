@@ -34,6 +34,7 @@ def disp_login():
 def set_user():
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
+
     testing = c.execute("SELECT * FROM users WHERE username = 'hi';")
     for row in testing:
         print("WOOHOO")
@@ -42,6 +43,8 @@ def set_user():
 
 @app.route("/logout")
 def disp_logout():
+    username = session['username']
+    session.pop('username', None)
     return render_template('logout.html')
 
 @app.route("/createaccount")
@@ -50,9 +53,14 @@ def disp_create_account():
 
 @app.route("/creating", methods = ["POST"])
 def creating():
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
     if (request.method == "POST"):
         username = request.form["username"]
+        password = request.form["password"]
         session["username"] = username
+        session["password"] = password
+    c.execute("INSERT INTO users VALUES ('" + username + "', '" + password + "', 'blog', 'session', 'token');")
     return render_template('homepage.html')
 
 @app.route("/profile")
