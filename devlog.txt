@@ -96,3 +96,8 @@ LOGIN AND CREATE ACCOUNT
 - Create account adds to database
 - Login in displays username on profile page
 - Login requires confirm password, throws error if they don't match
+
+alvinS --2025-11-06 11:46
+LOGIN AND CREATE ACCOUNT
+- New bugs, comments left in code
+- Tried to make admin account, doesn't add
