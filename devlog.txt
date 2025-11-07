@@ -117,3 +117,7 @@ CREATE POSTS
 alexandruC -- 2025-11-07 5:20
 EDIT POST
 - Added page to edit posts (cancel, save changes)
+
+alexandruC -- 2025-11-07 5:27
+TEXT FOR INVALID INFO
+-Added same flash for invalid field entered to login

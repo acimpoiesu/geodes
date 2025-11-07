@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <!--
     Geodes
     SoftDev 2025
@@ -10,28 +9,26 @@
   <head>
     <title> LOGIN PAGE </title>
   </head>
-
   <body>
-    <h1>
-      yippee wahoo hooray
-    </h1>
-
-
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div style="color: red; border: 1px solid red; padding: 10px;">
+        {% for message in messages %}
+          {{ message }}
+        {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
     <h3>
       Enter your username below to proceed.
     </h3>
-    <form action="/setuser", method = "POST">
-      <input type="text" name="username" placeholder = "username">
-      <input type="text" name="password" placeholder = "password">
+    <form action="/login", method = "POST">
+      <input type="text" name="username" placeholder = "username" required>
+      <input type="password" name="password" placeholder = "password" required> 
       <input type="submit">
-      <!-- <form action="/login">
-        <input type="text" name="username">
-        <input type="text" name="password"> -->
     </form>
     <br>
-    <a href = "createaccount">Don't have an account? Sign up!</a>
-    <br>
-    <a href = "..">Cancel</a>
-  </body>
-
+    <a href = "/createaccount">Don't have an account? Sign up!</a> <br>
+    <a href = "/">Cancel</a>
+   </body>
 </html>
