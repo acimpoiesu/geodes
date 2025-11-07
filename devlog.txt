@@ -101,3 +101,7 @@ alvinS --2025-11-06 11:46
 LOGIN AND CREATE ACCOUNT
 - New bugs, comments left in code
 - Tried to make admin account, doesn't add
+
+alexandruC -- 2025-11-07 4:53
+ADDED BLOG
+-Added links to other pages and formated posts
