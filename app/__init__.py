@@ -135,6 +135,36 @@ def disp_profile():
     db.close()
     return render_template('profile.html', username=username, posts=posts)
 
+@app.route("/edit/<int:post_id>", methods=['GET', 'POST'])
+def edit_post(post_id):
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+    c.execute("SELECT * FROM posts WHERE post_id = ?", (post_id,))
+    post = c.fetchone()
+    if not post:
+        flash("Post doesn't exist.")
+        return redirect(url_for('disp_profile'))
+    if post[1] != session['username']:
+        flash("You do not have permission to edit this post.")
+        db.close()
+        return redirect(url_for('disp_profile'))
+    if request.method == "POST":
+        title = request.form['title']
+        content = request.form['content']
+        c.execute("UPDATE posts SET post_title = ?, post_text = ? WHERE post_id = ?",
+                  (title, content, post_id))
+        db.commit()
+        db.close()
+        flash("Post Updated!")
+        return redirect(url_for('disp_profile'))
+    db.close()
+    return render_template('editpost.html')
+
+
+ 
+
 if __name__ == "__main__":
     app.debug = True
     app.run()

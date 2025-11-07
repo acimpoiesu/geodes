@@ -146,7 +146,11 @@ CREATEACCOUNT FUNC
 -incorporated info when creating account into db 
 -error handling with dupe users
 
-alexandruC -- 2025-11-07 6:24
+alexandruC -- 2025-11-07 6:37
 CREATEPOST FUNC
 -inserted post user info into db
 
+alexandruC -- 2025-11-07 6:48
+EDITPOST FUNC
+-edit post info into db (just requesting after edit)
+-error handling with editing others
