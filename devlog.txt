@@ -126,3 +126,7 @@ alexandruC -- 2025-11-07 5:37
 PROFILE
 -Added ability to delete posts
 -Same flash error handling
+
+alexandruC -- 2025-11-07 5:43
+HOMEPAGE INDEXING
+-changed to correct indexing for db on homepage

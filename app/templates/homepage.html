@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<!--
+    Geodes
+    SoftDev 2025
+-->
 <html>
 <head>
     <title> Geode Blog | Home </title>
@@ -20,10 +24,10 @@
     <h2>Recent Posts</h2>
     {% if posts %}
         {% for post in posts %}
-            <h3>{{ post[1] }}</h3>  <!-- title -->
-            <p>By: {{ post[0] }}</p>  <!-- owner -->
-            <p><small>Posted: {{ post[3][:10] }}</small></p>  <!-- timestamp -->
-            <p>{{ post[2][:100] }}{% if post[2]|length > 100 %}...{% endif %}</p>  <!-- content preview -->
+            <h3>{{ post[2] }}</h3>
+            <p>By: {{ post[1] }}</p>
+            <p><small>Posted: {{ post[4][:10] }}</small></p>
+            <p>{{ post[3][:100] }}{% if post[3]|length > 100 %}...{% endif %}</p>
             <a href="/blog"> Read more on Blog page </a>
             <hr>
         {% endfor %}
@@ -32,26 +36,3 @@
     {% endif %}
 </body>
 </html>
-
-<!-- 
-@app.route("/")
-def home():
-    db = sqlite3.connect(DB_FILE)
-    c = db.cursor()
-    posts = c.execute("SELECT * FROM posts ORDER BY timestamp DESC").fetchall()
-    db.close()
-    return render_template('homepage.html', posts=posts)
-
-
-    c.execute("""
-        CREATE TABLE IF NOT EXISTS posts (
-            owner TEXT, 
-            post_title TEXT, 
-            post_text TEXT, 
-            timestamp TEXT
-        )
-    """)
-
-make sure to do: from datetime import datetime
-
---!>
