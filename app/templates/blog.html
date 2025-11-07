@@ -3,23 +3,31 @@
 <head>
     <title> All Posts </title>
 </head>
+
+<style>
+  .text_wrap{
+    white-space: normal;
+    width: 850px;
+  }
+ </style>
+
 <body>
     <h1> Blog Feed </h1>
-    <a href="/">Home</a> | 
-    <a href="/blog">View Blog</a> | 
+    <a href="/">Home</a> |
+    <a href="/blog">View Blog</a> |
     {% if session['username'] %}
-        <a href="/createpost">Create Post</a> | 
-        <a href="/profile">Profile</a> | 
+        <a href="/createpost">Create Post</a> |
+        <a href="/profile">Profile</a> |
         <a href="/logout">Logout</a>
     {% else %}
-        <a href="/login">Login</a> | 
+        <a href="/login">Login</a> |
         <a href="/createaccount">Sign Up</a>
     {% endif %}
     <hr>
     <h2>All Posts</h2>
     {% if posts %}
         {% for post in posts %}
-            <h3>{{post[2]}}</h3> <p>By: {{post[1]}}</p> <p><small>Posted: {{post[4]}}</small></p> <pre>{{post[3]}}</pre> <hr>
+            <h3>{{post[2]}}</h3> <p>By: {{post[1]}}</p> <p><small>Posted: {{post[4]}}</small></p> <pre class = "text_wrap">{{post[3]}}</pre> <hr>
         {% endfor %}
     {% else %}
         <p> No posts yet.</p>

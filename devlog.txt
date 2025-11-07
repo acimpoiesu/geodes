@@ -168,3 +168,7 @@ DESIGN DOC REVISIONS
 alvinS -- 2025-11-07 10:34
 REMOVE BUGGY ADMIN ACCOUNT
 -Removed admin account that did not work with updated system
+
+alvinS -- 2025-11-07 10:57
+CONTAIN TEXT ON BLOGS
+-Added inline css to keep text within specified width
