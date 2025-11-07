@@ -43,6 +43,13 @@ def setup_database():
     db.close()
 setup_database()
 
+@app.route("/blog")
+def blog():
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+    posts = c.execute("SELECT * FROM posts ORDER BY timestamp DESC").fetchall()
+    db.close()
+    return render_template('blog.html', posts=posts)
 
 @app.route("/")
 def disp_homepage():
@@ -72,7 +79,7 @@ def disp_login():
                 flash("Incorrect password. Try again.")
         else:
             flash("Username incorrect or not found. Try again.")
-        return redirect(url_for('login'))
+        return redirect(url_for('disp_login'))
     return render_template('login.html')
 
 @app.route("/createaccount", methods = ['GET', "POST"])
@@ -87,30 +94,24 @@ def set_user():
         if user_exists:
             db.close()
             flash("Username already taken!")
-            return redirect(url_for('create_account'))
+            return redirect(url_for('set_user'))
         c.execute("INSERT INTO users (username, password, blog_title) VALUES (?, ?, ?)",
         (username, password, f"{username}'s Blog"))
+        db.commit()
+        db.close()
         session['username'] = username
         return redirect(url_for('disp_homepage'))
     return render_template('createaccount.html')
-    
-
-    for password in userinfo:
-        if password == password:
-            session["username"] = username
-            session["password"] = password
-    c.close()
-    return render_template('homepage.html')
 
 @app.route("/logout")
 def disp_logout():
     session.pop('username', None)
     return render_template('logout.html')
 
-@app.route("/createpost", methods = ["'GET',POST"])
+@app.route("/createpost", methods = ['GET','POST'])
 def creating():
     if 'username' not in session:
-        return redirect(url_for('login'))
+        return redirect(url_for('disp_login'))
     if request.method == "POST":
         title = request.form['title']
         content = request.form['content']
@@ -127,7 +128,7 @@ def creating():
 @app.route("/profile")
 def disp_profile():
     if 'username' not in session:
-        return redirect(url_for('login'))
+        return redirect(url_for('disp_login'))
     username = session['username']
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
@@ -138,7 +139,7 @@ def disp_profile():
 @app.route("/edit/<int:post_id>", methods=['GET', 'POST'])
 def edit_post(post_id):
     if 'username' not in session:
-        return redirect(url_for('login'))
+        return redirect(url_for('disp_login'))
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     c.execute("SELECT * FROM posts WHERE post_id = ?", (post_id,))
@@ -160,10 +161,26 @@ def edit_post(post_id):
         flash("Post Updated!")
         return redirect(url_for('disp_profile'))
     db.close()
-    return render_template('editpost.html')
+    return render_template('editblog.html', post=post)
 
-
- 
+@app.route("/delete/<int:post_id>", methods = ['POST'])
+def delete_post(post_id):
+    if 'username' not in session:
+        return redirect(url_for('disp_login'))
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+    c.execute("SELECT owner FROM posts WHERE post_id = ?", (post_id,))
+    post = c.fetchone()
+    if not post:
+        flash("Post doesn't exist.")
+    elif post[0] != session['username']:
+        flash("You do not have permission to delete this post.")
+    else:
+        c.execute("DELETE FROM posts WHERE post_id = ?", (post_id,))
+        db.commit()
+        flash("Post deleted.")
+    db.close()
+    return redirect(url_for('disp_profile'))
 
 if __name__ == "__main__":
     app.debug = True
