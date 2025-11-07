@@ -2,30 +2,56 @@
 # Softdev 2025
 # p00
 
-from flask import Flask, render_template, request, session
-
+from flask import Flask, render_template, request, session, redirect, url_for, flash
 import sqlite3
-
+import os
+from datetime import datetime
 
 app = Flask(__name__)
-app.secret_key = "secret"
+app.secret_key = os.urandom(24)
 DB_FILE = "blog.db"
-db = sqlite3.connect(DB_FILE)
-c = db.cursor()
 
-c.execute("CREATE TABLE IF NOT EXISTS users (username TEXT, password TEXT, blog_title TEXT, session_key TEXT, login_token TEXT);")
-c.execute("CREATE TABLE IF NOT EXISTS posts (owner TEXT, post_title TEXT, post_text TEXT, timestamp TEXT);")
-if not c.execute("SELECT * FROM users WHERE username = 'admin'") #Always returns false ????:
-    c.execute("INSERT INTO users VALUES ('admin', 'geodes1234', 'TEST BLOG', 'session_key', 'token')")
+#made into function for readability
+def setup_database():
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+    c.execute("""
+        CREATE TABLE IF NOT EXISTS users (
+            username TEXT PRIMARY KEY, 
+            password TEXT, 
+            blog_title TEXT, 
+            session_key TEXT, 
+            login_token TEXT
+        );
+    """)
+    c.execute("""
+        CREATE TABLE IF NOT EXISTS posts (
+            post_id INTEGER PRIMARY KEY AUTOINCREMENT,
+            owner TEXT, 
+            post_title TEXT, 
+            post_text TEXT, 
+            timestamp TEXT
+        );
+    """)
+    
+    c.execute("SELECT * FROM users WHERE username = 'admin'")
+    if not c.fetchone(): 
+        c.execute("INSERT INTO users (username, password, blog_title) VALUES (?, ?, ?)", #put secure placeholder so no injection
+                  ('admin', 'geodes1234', 'Admin Blog'))
+    
+    db.commit()
+    db.close()
+setup_database()
 
-db.commit()
-c.close()
-
-errormessage = "Query Failed"
 
 @app.route("/")
 def disp_homepage():
-    return render_template('homepage.html')
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+    posts = c.execute("SELECT * FROM posts ORDER BY timestamp DESC LIMIT 5").fetchall()
+    #limiting to 5 posts so no clutter
+    db.close()
+    return render_template('homepage.html', posts=posts)
 
 @app.route("/login")
 def disp_login():

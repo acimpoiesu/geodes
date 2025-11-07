@@ -130,3 +130,8 @@ PROFILE
 alexandruC -- 2025-11-07 5:43
 HOMEPAGE INDEXING
 -changed to correct indexing for db on homepage
+
+alexandruC -- 2025-11-07 6:01
+ADMIN USERS
+-fixed code that would allow for admin users
+-made floating code into functions
