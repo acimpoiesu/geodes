@@ -11,8 +11,16 @@
 </head>
 <body>
     <h1>Create Account</h1>
-    
-    <form method="POST">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div style="color: red; border: 1px solid red; padding: 10px;">
+        {% for message in messages %}
+          {{message}}
+        {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+    <form action="/createaccount" method="POST">
         <input type="text" name="username" placeholder="Username" required> <br> <br>
         <input type="password" name="password" placeholder="Password" required> <br> <br>
         <input type="submit" value="Create Account">
@@ -23,29 +31,3 @@
     <a href="/login"> Already have an account? Login</a>
 </body>
 </html>
-
-<!-- 
-
-@app.route("/createaccount", methods=['GET', 'POST'])
-def createaccount():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-        
-        db = sqlite3.connect(DB_FILE)
-        c = db.cursor()
-        
-        existing = c.execute("SELECT * FROM users WHERE username = ?", (username,)).fetchone()
-        if existing:
-            return "Username taken! <a href='/createaccount'>Try again</a>"
-        
-        c.execute("INSERT INTO users VALUES (?, ?)", (username, password))
-        db.commit()
-        db.close()
-        
-        session['username'] = username
-        return redirect('/')
-    
-    return render_template('createaccount.html')
-
---!>
