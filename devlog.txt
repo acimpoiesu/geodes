@@ -121,3 +121,8 @@ EDIT POST
 alexandruC -- 2025-11-07 5:27
 TEXT FOR INVALID INFO
 -Added same flash for invalid field entered to login
+
+alexandruC -- 2025-11-07 5:37
+PROFILE
+-Added ability to delete posts
+-Same flash error handling

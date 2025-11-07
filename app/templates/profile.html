@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-
 <!--
     Geodes
     SoftDev 2025
 -->
-
 <html>
 <head>
     <title>Profile</title>
@@ -16,15 +14,28 @@
     <a href="/blog">Blog</a> | 
     <a href="/createpost">Create Post</a> | 
     <a href="/logout">Logout</a>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div style="color: green; border: 1px solid green; padding: 10px; margin-top: 10px;">
+        {% for message in messages %}
+          {{ message }}
+        {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
     
     <h2>Welcome, {{ username }}!</h2>
-    
+
     <h3>Your Posts:</h3>
     {% if posts %}
         {% for post in posts %}
-            <h4>{{ post[1] }}</h4>  <!-- title -->
-            <p><small>Posted: {{ post[3][:10] }}</small></p>  <!-- timestamp -->
-            <p>{{ post[2] }}</p>    <!-- content -->
+            <h4>{{post[2]}}</h4>
+            <p><small>Posted: {{post[4][:10]}}</small></p>
+            <pre>{{post[3]}}</pre>
+            <a href="/edit/{{post[0]}}">Edit Post</a>
+            <form action="/delete/{{post[0]}}" method="POST" style="display:inline; margin-left: 10px;">
+                <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this post?');">
+            </form>
             <hr>
         {% endfor %}
     {% else %}
@@ -33,22 +44,3 @@
     {% endif %}
 </body>
 </html>
-
-<!--
-
-@app.route("/profile")
-def profile():
-    if 'username' not in session:
-        return redirect('/login')
-    
-    username = session['username']
-    db = sqlite3.connect("blog.db")
-    c = db.cursor()
-    
-    posts = c.execute("SELECT * FROM posts WHERE owner = ?", (username,)).fetchall()
-    db.close()
-    
-    return render_template('profile.html', username=username, posts=posts)
-
-# make sure to do  "from datetime import datetime" for date
---!>
