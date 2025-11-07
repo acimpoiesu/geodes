@@ -73,7 +73,7 @@ LOGIN
 - database is locked error resolved
 - app able to recognize if username is in db from login
 
-shafinK -- 2025-10-31 11:10session["password"] = password
+shafinK -- 2025-10-31 11:10
 CREATE ACCOUNT
 - added a create account page
 - users can submit a username and password
@@ -114,3 +114,6 @@ alexandruC -- 2025-11-07 5:11
 CREATE POSTS 
 - Added text box to create posts
 
+alexandruC -- 2025-11-07 5:20
+EDIT POST
+- Added page to edit posts (cancel, save changes)
