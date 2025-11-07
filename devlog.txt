@@ -164,3 +164,7 @@ alexandruC -- 2025-11-07 7:53
 DESIGN DOC REVISIONS
 -Updated functions to reflect our python file
 -Updated database design to reflect our databases
+
+alvinS -- 2025-11-07 10:34
+REMOVE BUGGY ADMIN ACCOUNT
+-Removed admin account that did not work with updated system

@@ -17,28 +17,28 @@ def setup_database():
     c = db.cursor()
     c.execute("""
         CREATE TABLE IF NOT EXISTS users (
-            username TEXT PRIMARY KEY, 
-            password TEXT, 
-            blog_title TEXT, 
-            session_key TEXT, 
+            username TEXT PRIMARY KEY,
+            password TEXT,
+            blog_title TEXT,
+            session_key TEXT,
             login_token TEXT
         );
     """)
     c.execute("""
         CREATE TABLE IF NOT EXISTS posts (
             post_id INTEGER PRIMARY KEY AUTOINCREMENT,
-            owner TEXT, 
-            post_title TEXT, 
-            post_text TEXT, 
+            owner TEXT,
+            post_title TEXT,
+            post_text TEXT,
             timestamp TEXT
         );
     """)
-    
-    c.execute("SELECT * FROM users WHERE username = 'admin'")
-    if not c.fetchone(): 
-        c.execute("INSERT INTO users (username, password, blog_title) VALUES (?, ?, ?)", #put secure placeholder so no injection
-                  ('admin', 'geodes1234', 'Admin Blog'))
-    
+
+    # c.execute("SELECT * FROM users WHERE username = 'admin'")
+    # if not c.fetchone():
+    #     c.execute("INSERT INTO users (username, password, blog_title) VALUES (?, ?, ?)", #put secure placeholder so no injection
+    #               ('admin', 'geodes1234', 'Admin Blog'))
+
     db.commit()
     db.close()
 setup_database()
