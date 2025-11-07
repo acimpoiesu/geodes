@@ -53,11 +53,29 @@ def disp_homepage():
     db.close()
     return render_template('homepage.html', posts=posts)
 
-@app.route("/login")
+@app.route("/login", methods=["GET", "POST"])
 def disp_login():
+    if request.method == 'POST':
+        db = sqlite3.connect(DB_FILE)
+        c = db.cursor()
+        username = request.form["username"]
+        password_form = request.form["password"]
+        c.execute("SELECT password FROM users WHERE username = ?", (username,))
+        user_data = c.fetchone()
+        db.close()
+        if user_data:
+            passworddb = user_data[0]
+            if password_form == passworddb:
+                session["username"] = username
+                return redirect(url_for('disp_homepage'))
+            else:
+                flash("Incorrect password. Try again.")
+        else:
+            flash("Username incorrect or not found. Try again.")
+        return redirect(url_for('login'))
     return render_template('login.html')
 
-@app.route("/setuser", methods = ["POST"])
+@app.route("/createaccount", methods = ["POST"])
 def set_user():
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
@@ -73,7 +91,6 @@ def set_user():
 
 @app.route("/logout")
 def disp_logout():
-    username = session['username']
     session.pop('username', None)
     return render_template('logout.html')
 
