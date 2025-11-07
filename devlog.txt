@@ -103,9 +103,14 @@ LOGIN AND CREATE ACCOUNT
 - Tried to make admin account, doesn't add
 
 alexandruC -- 2025-11-07 4:53
-BLOG CREATED
+BLOG UPDATE
 -Added links to other pages and formated posts
 
-alexandruC -- 2025-11-07 4:53
+alexandruC -- 2025-11-07 5:05
 TEXT FOR INVALID INFO
 -Added text for profile username already being used.
+
+alexandruC -- 2025-11-07 5:11
+CREATE POSTS 
+- Added text box to create posts
+
