@@ -6,32 +6,46 @@
 -->
 
 <html>
-
-  <head>
-    <title> CREATE ACCOUNT </title>
-  </head>
-
-  <body>
-    <h1>
-      woohah yoohooooooiii
-    </h1>
-
-
-    <h3>
-      Enter a username and password below to proceed.
-    </h3>
-    <form action="/creating", method = "POST">
-      <input type="text" name="username" placeholder = "username">
-      <input type="text" name="password" placeholder = "password">
-      <input type="text" name="confirm" placeholder = "confirm password">
-      <input type="submit">
-      <!-- <form action="/login">
-        <input type="text" name="username">
-        <input type="text" name="password"> -->
+<head>
+    <title> Geode Blog | Create Account</title>
+</head>
+<body>
+    <h1>Create Account</h1>
+    
+    <form method="POST">
+        <input type="text" name="username" placeholder="Username" required> <br> <br>
+        <input type="password" name="password" placeholder="Password" required> <br> <br>
+        <input type="submit" value="Create Account">
     </form>
     <br>
+    <a href="/"> Return to homepage</a>
     <br>
-    <a href = "/">Return to home</a>
-  </body>
-
+    <a href="/login"> Already have an account? Login</a>
+</body>
 </html>
+
+<!-- 
+
+@app.route("/createaccount", methods=['GET', 'POST'])
+def createaccount():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        
+        db = sqlite3.connect(DB_FILE)
+        c = db.cursor()
+        
+        existing = c.execute("SELECT * FROM users WHERE username = ?", (username,)).fetchone()
+        if existing:
+            return "Username taken! <a href='/createaccount'>Try again</a>"
+        
+        c.execute("INSERT INTO users VALUES (?, ?)", (username, password))
+        db.commit()
+        db.close()
+        
+        session['username'] = username
+        return redirect('/')
+    
+    return render_template('createaccount.html')
+
+--!>

@@ -1,31 +1,57 @@
 <!DOCTYPE html>
-
-<!--
-    Geodes
-    SoftDev 2025
--->
-
 <html>
-  <head>
-    <title> GEODE BLOG </title>
-  </head>
-
-  <body>
-    <h1> GEODE BLOG </h1>
-      <header>
-      <nav>
-       {% if not session['username'] %}
-       <a href = "/login"> Login </a>
-       {% endif %}
-       <br>
-       <a href = "/profile"> My Profile </a>
-       <br>
-       {% if session['username'] %}
-       <a href = "/logout"> Logout </a>
-       {% endif %}
-      </nav>
-     </header>
-  </body>
-
-
+<head>
+    <title> Geode Blog | Home </title>
+</head>
+<body>
+    <h1> Geode's Blogging Home </h1>
+    
+    <a href="/"> Home </a> | 
+    <a href="/blog"> View Blog </a> | 
+    {% if session['username'] %}
+        <a href="/createpost"> Create Post </a> | 
+        <a href="/profile"> Profile </a> | 
+        <a href="/logout"> Logout </a>
+    {% else %}
+        <a href="/login"> Login </a> | 
+        <a href="/createaccount"> Sign Up </a>
+    {% endif %}
+    
+    <h2>Recent Posts</h2>
+    {% if posts %}
+        {% for post in posts %}
+            <h3>{{ post[1] }}</h3>  <!-- title -->
+            <p>By: {{ post[0] }}</p>  <!-- owner -->
+            <p><small>Posted: {{ post[3][:10] }}</small></p>  <!-- timestamp -->
+            <p>{{ post[2][:100] }}{% if post[2]|length > 100 %}...{% endif %}</p>  <!-- content preview -->
+            <a href="/blog"> Read more on Blog page </a>
+            <hr>
+        {% endfor %}
+    {% else %}
+        <p> No posts yet. </p>
+    {% endif %}
+</body>
 </html>
+
+<!-- 
+@app.route("/")
+def home():
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+    posts = c.execute("SELECT * FROM posts ORDER BY timestamp DESC").fetchall()
+    db.close()
+    return render_template('homepage.html', posts=posts)
+
+
+    c.execute("""
+        CREATE TABLE IF NOT EXISTS posts (
+            owner TEXT, 
+            post_title TEXT, 
+            post_text TEXT, 
+            timestamp TEXT
+        )
+    """)
+
+make sure to do: from datetime import datetime
+
+--!>

@@ -6,16 +6,49 @@
 -->
 
 <html>
-  <head>
-    <title> Profile </title>
-    <h1> Profile </h1>
-    </head>
-
-<header>
-       <a href = "/"> Home </a>
-       {% if session['username'] %}
-       <h1> {{ session["username"] }} </h1>
-       {% endif %}
-</header>
-
+<head>
+    <title>Profile</title>
+</head>
+<body>
+    <h1>Your Profile</h1>
+    
+    <a href="/">Home</a> | 
+    <a href="/blog">Blog</a> | 
+    <a href="/createpost">Create Post</a> | 
+    <a href="/logout">Logout</a>
+    
+    <h2>Welcome, {{ username }}!</h2>
+    
+    <h3>Your Posts:</h3>
+    {% if posts %}
+        {% for post in posts %}
+            <h4>{{ post[1] }}</h4>  <!-- title -->
+            <p><small>Posted: {{ post[3][:10] }}</small></p>  <!-- timestamp -->
+            <p>{{ post[2] }}</p>    <!-- content -->
+            <hr>
+        {% endfor %}
+    {% else %}
+        <p>You haven't created any posts yet.</p>
+        <a href="/createpost">Create your first post!</a>
+    {% endif %}
+</body>
 </html>
+
+<!--
+
+@app.route("/profile")
+def profile():
+    if 'username' not in session:
+        return redirect('/login')
+    
+    username = session['username']
+    db = sqlite3.connect("blog.db")
+    c = db.cursor()
+    
+    posts = c.execute("SELECT * FROM posts WHERE owner = ?", (username,)).fetchall()
+    db.close()
+    
+    return render_template('profile.html', username=username, posts=posts)
+
+# make sure to do  "from datetime import datetime" for date
+--!>
