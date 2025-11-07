@@ -107,34 +107,34 @@ def disp_logout():
     session.pop('username', None)
     return render_template('logout.html')
 
-@app.route("/error")
-def disp_error():
-    return render_template("error.html")
-
-@app.route("/creating", methods = ["POST"])
+@app.route("/createpost", methods = ["'GET',POST"])
 def creating():
-    db = sqlite3.connect(DB_FILE)
-    c = db.cursor()
-    if (request.method == "POST"):
-        username = request.form["username"]
-        password = request.form["password"]
-        if password == request.form["confirm"]:
-            if c.execute(f"SELECT * FROM users WHERE username = '{username}';") == None #Always returns false????:
-                errormessage = "Username Taken. Please Retry." #not working html doesnt display
-                return render_template('error.html')
-            else:
-                c.execute(f"INSERT INTO users VALUES ('{username}', '{password}', 'BLOG_TITLE', 'SESSION', 'TOKEN');") #Not sure if this actually adds
-                db.commit()
-                c.close()
-                return render_template('login.html')
-    return render_template("createaccount.html")
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    if request.method == "POST":
+        title = request.form['title']
+        content = request.form['content']
+        owner = session['username']
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        db = sqlite3.connect(DB_FILE)
+        c = db.cursor()
+        c.execute("INSERT INTO posts (owner, post_title, post_text, timestamp) VALUES (?, ?, ?, ?)",(owner, title, content, timestamp))
+        db.commit()
+        db.close()
+        return redirect(url_for('blog'))
+    return render_template('createpost.html')
 
 @app.route("/profile")
 def disp_profile():
-    return render_template('profile.html')
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    username = session['username']
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+    posts = c.execute("SELECT * FROM posts WHERE owner = ? ORDER BY timestamp DESC", (username,)).fetchall()
+    db.close()
+    return render_template('profile.html', username=username, posts=posts)
 
 if __name__ == "__main__":
     app.debug = True
     app.run()
-
-db.close()
