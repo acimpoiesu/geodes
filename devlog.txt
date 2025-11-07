@@ -159,3 +159,8 @@ alexandruC -- 2025-11-07 7:16
 DELETEPOST FUNC
 -delete post info info from db
 -error handling with deleting others
+
+alexandruC -- 2025-11-07 7:53
+DESIGN DOC REVISIONS
+-Updated functions to reflect our python file
+-Updated database design to reflect our databases
