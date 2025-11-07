@@ -136,7 +136,12 @@ ADMIN USERS
 -fixed code that would allow for admin users
 -made floating code into functions
 
-alexandruC -- 2025-11-07 6:01
+alexandruC -- 2025-11-07 6:13
 LOGIN FUNC
 -incorporated login info with db 
 -error handling
+
+alexandruC -- 2025-11-07 6:13
+CREATEACCOUNT FUNC
+-incorporated info when creating account into db 
+-error handling with dupe users

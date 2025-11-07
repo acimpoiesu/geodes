@@ -75,13 +75,26 @@ def disp_login():
         return redirect(url_for('login'))
     return render_template('login.html')
 
-@app.route("/createaccount", methods = ["POST"])
+@app.route("/createaccount", methods = ['GET', "POST"])
 def set_user():
-    db = sqlite3.connect(DB_FILE)
-    c = db.cursor()
-    username = request.form["username"]
-    password = request.form["password"]
-    userinfo = c.execute(f"SELECT password FROM users WHERE username = '{username}';")
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        db = sqlite3.connect(DB_FILE)
+        c = db.cursor()
+        c.execute("SELECT * FROM users WHERE username = ?", (username,))
+        user_exists = c.fetchone()
+        if user_exists:
+            db.close()
+            flash("Username already taken!")
+            return redirect(url_for('create_account'))
+        c.execute("INSERT INTO users (username, password, blog_title) VALUES (?, ?, ?)",
+        (username, password, f"{username}'s Blog"))
+        session['username'] = username
+        return redirect(url_for('disp_homepage'))
+    return render_template('createaccount.html')
+    
+
     for password in userinfo:
         if password == password:
             session["username"] = username
@@ -93,10 +106,6 @@ def set_user():
 def disp_logout():
     session.pop('username', None)
     return render_template('logout.html')
-
-@app.route("/createaccount")
-def disp_create_account():
-        return render_template("createaccount.html")
 
 @app.route("/error")
 def disp_error():
