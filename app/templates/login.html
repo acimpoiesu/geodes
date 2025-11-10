@@ -9,26 +9,113 @@
   <head>
     <title> LOGIN PAGE </title>
   </head>
-  <body>
+	<body style="
+    background: linear-gradient(to bottom, #2d1b69, #1a1033);
+    color: #e6d8ff;
+    font-family: 'Georgia', serif;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  	">
+    <div style="
+      max-width: 400px;
+      width: 100%;
+      background-color: #4a2c8c;
+      padding: 50px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px #00000047;
+      border: 2px solid #8a63d2;
+    ">
+		 
     {% with messages = get_flashed_messages() %}
       {% if messages %}
-        <div style="color: red; border: 1px solid red; padding: 10px;">
+        <div style="
+            color: #ff6b6b;
+            background-color: #ff6b6b1a;
+            border: 1px solid #ff6b6b;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+          ">
         {% for message in messages %}
           {{ message }}
         {% endfor %}
         </div>
       {% endif %}
     {% endwith %}
-    <h3>
+
+    <h1 style="
+        text-align: center;
+        color: #d4bfff;
+        margin-bottom: 10px;
+        text-shadow: 0 0 10px #8a63d280;
+      ">
+        ✦ LOGIN ✦
+      </h1>
+		 
+    <h3 style="font-family: Arial Narrow; text-align: center;">
       Enter your username below to proceed.
     </h3>
-    <form action="/login", method = "POST">
-      <input type="text" name="username" placeholder = "username" required>
-      <input type="password" name="password" placeholder = "password" required> 
-      <input type="submit">
+		 
+    <form action="/login", method = "POST" style="margin-bottom: 30px;">
+
+		<div style="margin-bottom: 20px;">
+      <input type="text" name="username" placeholder = "username" required style="
+                  width: 100%;
+                  padding: 12px 15px;
+                  border: 2px solid #8a63d2;
+                  border-radius: 8px;
+                  background-color: #3a2375;
+                  color: #e6d8ff;
+                  font-size: 16px;
+			         box-sizing: border-box;" >     
+		</div>
+
+      <div style="margin-bottom: 25px;">
+      <input type="password" name="password" placeholder = "password" required style="
+                  width: 100%;
+                  padding: 12px 15px;
+                  border: 2px solid #8a63d2;
+                  border-radius: 8px;
+                  background-color: #3a2375;
+                  color: #e6d8ff;
+                  font-size: 16px;
+			         box-sizing: border-box;"> 
+      </div>
+      
+		 <input type="submit" value= "Login" style="
+                width: 100%;
+                padding: 12px;
+                background: linear-gradient(to right, #8a63d2, #6d28d9);
+                color: white;
+                border: none;
+                border-radius: 8px;
+                font-size: 16px;
+                font-weight: bold;" >
     </form>
     <br>
-    <a href = "/createaccount">Don't have an account? Sign up!</a> <br>
-    <a href = "/">Cancel</a>
+    <a href = "/createaccount" style="
+            color: #c9a8ff;
+		      text-align: center;
+		      font-family: Arial Narrow;
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 0px;
+            display: block;"> ✦ Don't have an account? Sign up! ✦ </a> <br>
+   
+		 <a href = "/"  style="
+            color: #b394f5;
+            text-decoration: none;
+		 		text-align: center;
+		      font-family: Arial Narrow;            
+			   margin-top: 0px;
+            display: block;"> ← Cancel and Return Home</a>
    </body>
 </html>
+
+
+
+

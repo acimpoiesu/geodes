@@ -11,44 +11,124 @@
 <style>
   .text_wrap{
     white-space: normal;
-    width: 850px;
+    width: 800px;
   }
  </style>
 
-<body>
-    <h1>Your Profile</h1>
+<body style="
+ background: linear-gradient(to bottom, #2d1b69, #1a1033); 
+ min-height: 100vh; 
+ color: #e6d8ff;
+ font-family: 'Georgia', 
+ sans-serif; 
+ padding: 30px;">
 
-    <a href="/">Home</a> |
-    <a href="/blog">Blog</a> |
-    <a href="/createpost">Create Post</a> |
-    <a href="/logout">Logout</a>
+	    <div style="max-width: 800px; margin: auto; background-color: #4a2c8c; padding: 30px; border-radius: 10px;">
+			 
+        <h1 style="
+			  text-align: center; 
+			  color: #d4bfff; 
+			  border-bottom: 3px solid #8a63d2; 
+			  padding-bottom: 30px;">
+           ✦ YOUR PROFILE ✦
+        </h1>
+			 
+        <div style="
+            text-align: center;
+            padding: 15px;
+            background-color: #3a2375;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        ">
+            ✦ <a href="/" style="color: #c9a8ff; text-decoration: none; margin: 0 15px;">Home</a> ✦
+            <a href="/blog" style="color: #c9a8ff; text-decoration: none; margin: 0 15px;">Blog</a> ✦
+            <a href="/createpost" style="color: #c9a8ff; text-decoration: none; margin: 0 15px;">Create Post</a> ✦
+            <a href="/logout" style="color: #c9a8ff; text-decoration: none; margin: 0 15px;">Logout</a> ✦
+        </div>
+			 
     {% with messages = get_flashed_messages() %}
       {% if messages %}
-        <div style="color: green; border: 1px solid green; padding: 10px; margin-top: 10px;">
-        {% for message in messages %}
-          {{ message }}
-        {% endfor %}
-        </div>
+            <div style="
+                color: #4ade80;
+                background-color: #4ADE8019);
+                border: 1px solid #4ade80;
+                padding: 15px;
+                border-radius: 8px;
+                margin-bottom: 25px;
+                text-align: center;
+                font-weight: bold;
+            ">
+            {% for message in messages %}
+              {{ message }}
+            {% endfor %}
+            </div>
       {% endif %}
     {% endwith %}
 
-    <h2>Welcome, {{ username }}!</h2>
+    <h1 style="margin: 0; text-align: center; font-family: Serif; color: #d4bfff; text-shadow: 0 0 8px #d4bfff80;">   
+		 Welcome, {{ username }}!   </h1>
 
-    <h3>Your Posts:</h3>
+    <h2 style= "font-family: Monospace"> YOUR POSTS:</h2>
     {% if posts %}
         {% for post in posts %}
-            <h4>{{post[2]}}</h4>
-            <p><small>Posted: {{post[4][:10]}}</small></p>
+                    <div style="
+                        background-color: #3a237580;
+                        padding: 20px;
+                        margin: 20px 0;
+                        border-radius: 10px;
+                        border: 1px solid #5a3a9c;
+							  border-left: 5px solid #8a63d2;">	  
+          <h4 style="
+				   font-family: Monospace;
+					color: #e6d8ff;
+					margin-top: 0;
+					font-size: 1.4em;
+					border-bottom: 1px solid #8a63d2;
+					padding-bottom: 10px;
+					">			
+			   {{post[2]}}
+			</h4>
+							  
+            <p style = "font-family: Monospace;"><small>Posted: {{post[4][:10]}}</small> </p>
             <pre class = "text_wrap">{{post[3]}}</pre>
-            <a href="/edit/{{post[0]}}">Edit Post</a>
-            <form action="/delete/{{post[0]}}" method="POST" style="display:inline; margin-left: 10px;">
-                <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this post?');">
-            </form>
-            <hr>
+            <br>
+            <a href="/edit/{{post[0]}}"  style="
+                                color: white;
+										  font-family: Arial;
+					                 font-size: 13px;
+                                background-color: #5a3a9c;
+                                padding: 7.5px 12px;
+                                text-decoration: none;
+                                border-radius: 5px;
+                                margin-right: 10px;" >Edit Post</a>
+							  
+ <form action="/delete/{{ post[0] }}" method="POST" style="display:inline;">
+                                <input type="submit" 
+                                       value="Delete" 
+                                       onclick="return confirm('Are you sure you want to delete this post?');"
+                                       style="
+                                        background:#5a3a9c;
+                                        color: white;
+                                        border: none;
+                                        padding: 8px 16px;
+                                        border-radius: 5px;">
+                            </form>
+				<br> <br>
+				</div>
+			 
         {% endfor %}
     {% else %}
+	   <div style="text-align: center; padding: 30px; background-color: #3a2375; border-radius: 8px; margin-bottom: 50px">
         <p>You haven't created any posts yet.</p>
-        <a href="/createpost">Create your first post!</a>
+		</div>
+        <a href="/createpost"  style="
+                                color: white;
+                                background: linear-gradient(to right, #8a63d2, #6d28d9);
+                                padding: 10px 25px;
+                                text-decoration: none;
+                                border-radius: 5px;
+                                margin-right: 10px;" >Create your first post!</a>
     {% endif %}
+		</div>
 </body>
 </html>

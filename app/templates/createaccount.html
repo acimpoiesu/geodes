@@ -9,25 +9,110 @@
 <head>
     <title> Geode Blog | Create Account</title>
 </head>
-<body>
-    <h1>Create Account</h1>
+<body style="
+    background: linear-gradient(to bottom, #2d1b69, #1a1033);
+    color: #e6d8ff;
+    font-family: 'Georgia', serif;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  	">
+	
+	<div style="
+      max-width: 400px;
+      width: 100%;
+      background-color: #4a2c8c;
+      padding: 50px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px #00000047;
+      border: 2px solid #8a63d2;
+    ">
+		
+    <h1 style="
+        text-align: center;
+        color: #d4bfff;
+        margin-bottom: 10px;
+        text-shadow: 0 0 10px #8a63d280;
+      "> ✦ Create Account ✦ </h1>
+		
     {% with messages = get_flashed_messages() %}
       {% if messages %}
-        <div style="color: red; border: 1px solid red; padding: 10px;">
+        <div style="
+            color: #ff6b6b;
+            background-color: #ff6b6b1a;
+            border: 1px solid #ff6b6b;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+          ">
         {% for message in messages %}
           {{message}}
         {% endfor %}
         </div>
       {% endif %}
     {% endwith %}
+		
     <form action="/createaccount" method="POST">
-        <input type="text" name="username" placeholder="Username" required> <br> <br>
-        <input type="password" name="password" placeholder="Password" required> <br> <br>
-        <input type="submit" value="Create Account">
+		<div style="margin-bottom: 20px;">
+      <input type="text" name="username" placeholder = "username" required style="
+                  width: 100%;
+                  padding: 12px 15px;
+                  border: 2px solid #8a63d2;
+                  border-radius: 8px;
+                  background-color: #3a2375;
+                  color: #e6d8ff;
+                  font-size: 16px;
+			         box-sizing: border-box;" >     
+		</div>
+		 
+      <div style="margin-bottom: 25px;">
+      <input type="password" name="password" placeholder = "password" required style="
+                  width: 100%;
+                  padding: 12px 15px;
+                  border: 2px solid #8a63d2;
+                  border-radius: 8px;
+                  background-color: #3a2375;
+                  color: #e6d8ff;
+                  font-size: 16px;
+			         box-sizing: border-box;"> 
+      </div>
+		 
+		 <input type="submit" value = "Create Account" style="
+                width: 100%;
+                padding: 12px;
+                background: linear-gradient(to right, #8a63d2, #6d28d9);
+                color: white;
+                border: none;
+                border-radius: 8px;
+                font-size: 16px;
+                font-weight: bold;" >
     </form>
     <br>
-    <a href="/"> Return to homepage</a>
-    <br>
-    <a href="/login"> Already have an account? Login</a>
+   <br>
+        <div style="text-align: center;">
+            <a href="/"
+               style="
+					 font-family: Arial Narrow;
+                color: #c9a8ff;
+                text-decoration: none;
+                font-weight: bold;
+                margin-bottom: 15px;
+                display: block;
+               ">
+                ← Return to homepage 
+            </a>
+			  
+            <a href="/login" 
+               style="
+                color: #b394f5;
+					 font-family: Arial Narrow;
+                text-decoration: none;" >
+                ✦ Already have an account? Login ✦
+            </a>
+			  
+        </div>
 </body>
 </html>

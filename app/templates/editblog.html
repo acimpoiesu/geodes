@@ -3,23 +3,95 @@
 <head>
     <title> Geode Blog | Edit Post </title>
 </head>
-<body>
-    <h1> Edit Your Post </h1>
-    <a href="/"> Home </a> | 
-    <a href="/blog"> View Blog </a> | 
-    <a href="/profile"> Profile </a> | 
-    <a href="/logout"> Logout </a>
+<body style="
+ background: linear-gradient(to bottom, #2d1b69, #1a1033); 
+ min-height: 100vh; 
+ color: #e6d8ff;
+ font-family: 'Georgia', 
+ sans-serif; 
+ padding: 30px;">
+    
+    <div style="max-width: 800px; margin: auto; background-color: #4a2c8c; padding: 30px; border-radius: 10px;">
+		 
+        <h1 style="
+			  text-align: center; 
+			  color: #d4bfff; 
+			  border-bottom: 3px solid #8a63d2; 
+			  padding-bottom: 30px;">
+           ✦ EDIT YOUR POST✦
+        </h1> 
+		 
+        <div style="
+            text-align: center;
+            padding: 15px;
+            background-color: #3a2375;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        ">
+            ✦ <a href="/" style="color: #c9a8ff; text-decoration: none; margin: 0 15px; font-weight: bold;">Home</a> ✦
+            <a href="/blog" style="color: #c9a8ff; text-decoration: none; margin: 0 15px; font-weight: bold;">View Blog</a> ✦
+            <a href="/profile" style="color: #c9a8ff; text-decoration: none; margin: 0 15px; font-weight: bold;">Profile</a> ✦
+            <a href="/logout" style="color: #c9a8ff; text-decoration: none; margin: 0 15px; font-weight: bold;">Logout</a> ✦
+        </div>
+		 
     <hr>
-    <form method="POST">
-        <label for="title">Title:</label> <br>
-        <input type-="text" name="title" value="{{post[2]}}" required size="50"> 
+    <form method="POST" style="margin-bottom: 25px;>
+		 <div style=" margin-bottom: 25px;">
+        <label for="title" style="
+                    color: #d4bfff;
+			  			  font-family: Georgia ;
+                    font-weight: bold;
+                    font-size: 20px;
+                    display: block;
+                    margin-top: 20px;"> TITLE: </label> <br>
+		 
+        <input type-="text" name="title" value="{{post[2]}}" required size="50" style="
+                        font-family: Monospace;
+                        width: 100%;
+                        padding: 12px 15px;
+                        border: 2px solid #8a63d2;
+                        border-radius: 8px;
+                        background-color: #3a2375;
+                        color: #e6d8ff;
+                        font-size: 16px;
+                        box-sizing: border-box;"> 
         <br> <br>
-        <label for="content">Content:</label> <br>
-        <textarea name="content" required size="500">{{post[3]}}</textarea>
+        <label for="content" style = "
+			          color: #d4bfff;
+                    font-weight: bold;
+                    font-size: 20px;
+                    display: block;
+                    margin-bottom: 8px;"> CONTENT:</label> <br>
+		 
+        <textarea name="content" required size="500" style = "
+			  						 width: 100%;
+                            padding: 15px;
+                            border: 2px solid #8a63d2;
+                            border-radius: 8px;
+                            background-color: #3a2375;
+                            color: #e6d8ff;
+                            font-size: 16px;
+                            font-family: Monospace;
+                            box-sizing: border-box;
+                            resize: vertical;
+                            line-height: 1.5;">{{post[3]}}</textarea>
         <br> <br>
-        <input type="submit" value="Save Changes">
+		 
+        <input type="submit" value="Save Changes" style="
+			  					font-family: Georgia;
+                        padding: 10px 15px;
+                        background: linear-gradient(to right, #8a63d2, #6d28d9);
+                        color: white;
+                        border: none;
+                        border-radius: 8px;
+                        font-size: 16px;">
     </form>
-    <br>
-    <a href="/profile"> Cancel </a>
+
+    <a href="/profile" style="
+            color: #c9a8ff;
+            text-decoration: none;        
+			   margin-bottom: 10px;
+            display: block;"> ← Cancel </a>
 </body>
 </html>
+

@@ -7,32 +7,69 @@
 <head>
     <title> Geode Blog | Home </title>
 </head>
-<body>
-    <h1> Geode's Blogging Home </h1>
+<body style="
+ background: linear-gradient(to bottom, #2d1b69, #1a1033); 
+ min-height: 100vh; 
+ color: #e6d8ff;
+ font-family: 'Georgia', 
+ sans-serif; 
+ padding: 30px;">
     
-    <a href="/"> Home </a> | 
-    <a href="/blog"> View Blog </a> | 
-    {% if session['username'] %}
-        <a href="/createpost"> Create Post </a> | 
-        <a href="/profile"> Profile </a> | 
-        <a href="/logout"> Logout </a>
-    {% else %}
-        <a href="/login"> Login </a> | 
-        <a href="/createaccount"> Sign Up </a>
-    {% endif %}
-    
-    <h2>Recent Posts</h2>
-    {% if posts %}
-        {% for post in posts %}
-            <h3>{{ post[2] }}</h3>
-            <p>By: {{ post[1] }}</p>
-            <p><small>Posted: {{ post[4][:10] }}</small></p>
-            <p>{{ post[3][:100] }}{% if post[3]|length > 100 %}...{% endif %}</p>
-            <a href="/blog"> Read more on Blog page </a>
-            <hr>
-        {% endfor %}
-    {% else %}
-        <p> No posts yet. </p>
-    {% endif %}
+    <div style="max-width: 800px; margin: auto; background-color: #4a2c8c; padding: 30px; border-radius: 10px;">
+		 
+        <h1 style="
+			  text-align: center; 
+			  color: #d4bfff; 
+			  border-bottom: 3px solid #8a63d2; 
+			  padding-bottom: 30px;">
+           ✦ GEODE'S HOME BLOG ✦
+        </h1>
+        
+        <div style="
+			  text-align: center; 
+			  padding: 10px; 
+			  background-color: #3a2375; 
+			  border-radius: 5px;">
+			  
+          ✦  <a href="/" style="color: #c9a8ff; text-decoration: none; margin: 10px;"> Home </a> ✦
+			  
+            <a href="/blog" style="color: #c9a8ff; text-decoration: none; margin: 0 10px;"> View Blog </a> ✦ 
+			  
+            {% if session['username'] %}
+                <a href="/createpost" style="color: #c9a8ff; text-decoration: none; margin: 0 10px;"> Create Post </a> ✦
+                <a href="/profile" style="color: #c9a8ff; text-decoration: none; margin: 0 10px;"> Profile </a> ✦ 
+                <a href="/logout" style="color: #c9a8ff; text-decoration: none; margin: 0 10px;"> Logout </a> ✦ 
+            {% else %}
+                <a href="/login" style="color: #c9a8ff; text-decoration: none; margin: 0 10px;"> Login </a> ✦ 
+                <a href="/createaccount" style="color: #c9a8ff; text-decoration: none; margin: 0 10px;"> Sign Up </a>
+            {% endif %}
+        </div>
+        
+        <h2 style="color: #d4bfff;">Recent Posts</h2>
+        
+        {% if posts %}
+            {% for post in posts %}
+                <div style="font-family: monospace; 
+						 background-color: #3a2375; 
+						 padding: 15px; 
+						 margin: 15px 0; 
+						 border-radius: 8px; 
+						 border-left: 5px solid #8a63d2;">
+						 
+                    <h3 style="color: #e6d8ff; margin-top: 0;">{{ post[2] }}</h3>
+                    <p style="color: #c9a8ff;"><strong>By:</strong> {{ post[1] }}</p>
+                    <p style="color: #b394f5;"><small>Posted: {{ post[4][:10] }}</small></p>
+                    <p style="color: #e6d8ff;">{{ post[3][:100] }}{% if post[3]|length > 100 %}...{% endif %}</p>
+                    <a href="/blog" style="color: #c9a8ff; font-weight: bold; font-family: Arial Narrow"> 
+                      Read more on Blog page..
+                    </a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div style="text-align: center; padding: 30px; background-color: #3a2375; border-radius: 8px;">
+                <p style="color: #c9a8ff;"> No posts yet. </p>
+            </div>
+        {% endif %}
+    </div>
 </body>
 </html>
